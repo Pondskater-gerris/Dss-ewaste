@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Subcomponent Entry</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+        <div class="container-xxl">
+            <a href="#intro" class="navbar-brand">
+                <span class="fw-bold text-secondary text-light ms-4">
+                    Project-level Modeling
+                </span>
+            </a>
+            <!--Toggle button for nav on mobile devices-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+            aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--navbar links-->
+            <div class="collapse navbar-collapse justify-content-end align-center"
+            id="main-nav">
+            <ul class="navbar-nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- Initial Form -->
+        <form id="initialForm">
+            <div class="form-group">
+                <label for="numSubcomponents">Number of Subcomponents:</label>
+                <input type="number" class="form-control" id="numSubcomponents" placeholder="Enter a number">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitInitialForm()">Submit</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function submitInitialForm() {
+            var numSubcomponents = document.getElementById('numSubcomponents').value;
+            if (numSubcomponents > 0) {
+                // Redirect to subcomponent entry page with the number of subcomponents
+                window.location.href = 'subcomponents.html?numSubcomponents=' + numSubcomponents;
+            } else {
+                alert('Please enter a valid number of subcomponents.');
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Home page</title>
+    <style>
+        section{
+            padding: 60px 0;
+        }
+    </style>
+</head>
+<body>
+   
+    <!--navbar-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+        <div class="container-xxl">
+            <a href="#intro" class="navbar-brand">
+                <span class="fw-bold text-secondary text-light ms-4">
+                    Help
+                </span>
+            </a>
+            <!--Toggle button for nav on mobile devices-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+            aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--navbar links-->
+            <div class="collapse navbar-collapse justify-content-end align-center"
+            id="main-nav">
+            <ul class="navbar-nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link" href="glossary.html">Glossary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!--Accordion with further details for the about page-->
+    <section id="Info" >
+        <div class="container-lg">
+            <div class="text-center text-secondary">
+                <h2>Need help navigating this tool?</h2>
+                <p class="lead text-muted"> More info here on how to run this tool</p>
+            </div>
+            <div class="row my-5 justify-content-around align-items-center">
+                <div class="col-8 col-lg-6">
+                     <div class="accordion" id="Aboutinfo">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#First" aria-expanded="true" aria-controls="First"> General information on modeling </button>
+                            </h2>
+                            <div id="First" class="accordion-collapse collapse show" 
+                            aria-labelledby="heading-1" data-bs-parent="#Aboutinfo">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex excepturi odio et fuga cum harum pariatur? Quisquam ut, deleniti odit tempora dolores qui itaque cum non accusamus officia commodi expedita vel perspiciatis nostrum libero ab ipsam odio totam iure nobis rerum cumque maxime? Molestiae reiciendis quod quos itaque nam.
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nam inventore perspiciatis iste magni, dolorum quos? Sunt fuga fugit nemo. In inventore consequatur optio iusto!</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-2">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#Second" aria-expanded="true" aria-controls="Second"> Homepage selection </button>
+                            </h2>
+                            <div id="Second" class="accordion-collapse collapse" 
+                            aria-labelledby="heading-2" data-bs-parent="#Aboutinfo">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex excepturi odio et fuga cum harum pariatur? Quisquam ut, deleniti odit tempora dolores qui itaque cum non accusamus officia commodi expedita vel perspiciatis nostrum libero ab ipsam odio totam iure nobis rerum cumque maxime? Molestiae reiciendis quod quos itaque nam.
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nam inventore perspiciatis iste magni, dolorum quos? Sunt fuga fugit nemo. In inventore consequatur optio iusto!</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-3">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#Third" aria-expanded="true" aria-controls="Third"> Company-level Modeling </button>
+                            </h2>
+                            <div id="Third" class="accordion-collapse collapse" 
+                            aria-labelledby="heading-3" data-bs-parent="#Aboutinfo">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex excepturi odio et fuga cum harum pariatur? Quisquam ut, deleniti odit tempora dolores qui itaque cum non accusamus officia commodi expedita vel perspiciatis nostrum libero ab ipsam odio totam iure nobis rerum cumque maxime? Molestiae reiciendis quod quos itaque nam.
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nam inventore perspiciatis iste magni, dolorum quos? Sunt fuga fugit nemo. In inventore consequatur optio iusto!</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-4">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#Fourth" aria-expanded="true" aria-controls="Fourth"> Project-level Modeling </button>
+                            </h2>
+                            <div id="Fourth" class="accordion-collapse collapse" 
+                            aria-labelledby="heading-4" data-bs-parent="#Aboutinfo">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ex excepturi odio et fuga cum harum pariatur? Quisquam ut, deleniti odit tempora dolores qui itaque cum non accusamus officia commodi expedita vel perspiciatis nostrum libero ab ipsam odio totam iure nobis rerum cumque maxime? Molestiae reiciendis quod quos itaque nam.
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nam inventore perspiciatis iste magni, dolorum quos? Sunt fuga fugit nemo. In inventore consequatur optio iusto!</p>
+                            </div>
+                            </div>
+                        </div>
+
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

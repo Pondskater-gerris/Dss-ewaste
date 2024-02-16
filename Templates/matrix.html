@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Data Page</title>
+</head>
+<body>
+    <h1>Show Data Page</h1>
+    {% if final_values %}
+        <div>
+            <h2>Final Values</h2>
+            <ul>
+                {% for product, values in final_values.items() %}
+                    <li>{{ product }}: {{ values }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>No final values available.</p>
+    {% endif %}
+</body>
+</html>
