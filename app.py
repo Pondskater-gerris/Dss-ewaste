@@ -9,7 +9,32 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5500"}}, supports_credentials=True)
 app.config['SECRET_KEY'] = 'Pondskatergerris123'
 
+# Configure database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sessions.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Initialize database
+db = SQLAlchemy(app)
+
+#Initialize sesion management 
+app.config['SESSION_TYPE'] = 'sqlalchemy'
+app.config['SESSION_SQLALCHEMY'] = db
+Session(app)
+
+# Define model for session data
+class SessionData(db.Model):
+    __tablename__ = 'sessions'
+    __table_args__ = {'extend_existing': True}  # Add this line
+    id = db.Column(db.Integer, primary_key=True)
+    session_id = db.Column(db.String(255), unique=True, nullable=False)
+    data = db.Column(db.Text, nullable=False)
+
+    def __init__(self, session_id, data):
+        self.session_id = session_id
+        self.data = json.dumps(data)  # Serialize final_values to JSON
+
+    def get_final_values(self):
+        return json.loads(self.data)  # Deserialize final_values from JSON
 
 @app.route('/')
 @app.route('/home.html')
@@ -134,19 +159,24 @@ def Product_modeling_page():
                         'scale': defaultValues[product]['scale'],
                     }
 
-            # Check the status of wasteTreatmentToggle
-            if wasteTreatmentToggle == 'on':
-                waste_costs = default_waste_costs
-            else:
-                waste_costs = input_waste_costs
+            # Store final_values in the session
+            session['final_values'] = final_values
 
-            
+            # Serialize final_values before storing in the database
+            final_values_json = json.dumps(final_values)
+
+            # Save session data to the database
+
+            final_values_json = json.dumps(final_values)  # Serialize final_values to JSON
+
+            db.session.add(SessionData(session_id=session.sid, data=final_values_json))
+            db.session.commit()
 
             print(f"finalvalues: {final_values}")
-            print(f"starting Year: {starting_year}")
+            #print(f"starting Year: {starting_year}")
             #print(f"MatInput: {matrixInputData}")
-            print(f"Unprocessed Unit: {matrix_table}")
-            print(f"SelectedProducts: {selectedProducts}")
+            #print(f"Unprocessed Unit: {matrix_table}")
+            #print(f"SelectedProducts: {selectedProducts}")
 
             Unit_Values = {}
 
@@ -162,12 +192,12 @@ def Product_modeling_page():
                         new_value = float(value) * factor  # Multiply the value by the factor
                         Unit_Values[product][year] = new_value  # Store the new value in the Unit_Values dictionary
 
-            print(f"Processed Units: {Unit_Values}")
+            #print(f"Processed Units: {Unit_Values}")
 
 
 
             # Redirect to the show_data_page
-            #return redirect(url_for('matrix_page'))
+            return redirect(url_for('matrix_page'))
             #return print(type(final_values))
             
 
@@ -189,7 +219,7 @@ def Product_modeling_page():
     #return render_template('matrix.html')
 
 
-'''@app.route('/matrix_page', methods=['POST','GET', 'OPTIONS'])
+@app.route('/matrix_page', methods=['POST','GET', 'OPTIONS'])
 def matrix_page():
 
     if request.method == 'POST':
@@ -247,7 +277,7 @@ def matrix_page():
         print(f"finalvalues under OPTIONS: {final_values}")
         return response
 
-    return jsonify({"status": "error", "message": "GET request received, expected POST"})'''
+    return jsonify({"status": "error", "message": "GET request received, expected POST"})
 
 
 
